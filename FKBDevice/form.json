@@ -7,7 +7,7 @@
                   "name": "Host",
                   "caption": "Host"
                 },{
-                  "type": "ValidationTextBox",
+                  "type": "NumberSpinner",
                   "name": "Port",
                   "caption": "Port"
                 }

@@ -94,7 +94,6 @@ class FKBDevice extends IPSModule
     {
         //Never delete this line!
         parent::ApplyChanges();
-
         $this->SetTimerInterval('FKB_Update', $this->ReadPropertyInteger('Updateinterval') * 1000);
     }
 
