@@ -1,0 +1,12 @@
+{
+    "id": "{5FE3253E-92D3-5C5E-25AB-A97F2BA1142B}",
+    "name": "FullyKioskBrowser",
+    "author": "Kai Schnittcher",
+    "url": "https://deinsmarthome.info",
+    "compatibility": {
+        "version": "5.0"
+    },
+    "version": "1.0",
+    "build": 0,
+    "date": 0
+}

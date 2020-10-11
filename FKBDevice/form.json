@@ -1,0 +1,21 @@
+{
+    "elements": [
+        { 
+            "type": "RowLayout",
+            "items": [
+                { "type": "ValidationTextBox",
+                  "name": "Host",
+                  "caption": "Host"
+                },{
+                  "type": "ValidationTextBox",
+                  "name": "Port",
+                  "caption": "Port"
+                }
+            ]
+        },       
+        { "type": "PasswordTextBox", "name": "Password", "caption": "Password" },
+        { "type": "NumberSpinner", "name": "Updateinterval", "caption": "Updateinterval", "suffix": "seconds"}
+    ],
+    "actions": [],
+    "status": []
+}

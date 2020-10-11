@@ -1,0 +1,12 @@
+{
+    "id": "{D632C897-19CA-2750-A12A-8550700655C3}",
+    "name": "FKBDevice",
+    "type": 3,
+    "vendor": "",
+    "aliases": ["FullyKioskBrowser"],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "FKB",
+    "url": "https://deinsmarthome.info"
+}
