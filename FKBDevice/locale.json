@@ -1,8 +1,31 @@
 {
     "translations": {
         "de": {
-            "Translation 1": "Übersetzung 1",
-            "Translation 2": "Übersetzung 2"
+            "Host": "Host",
+            "Port": "Port",
+            "Password": "Passwort",
+            "Updateinterval": "Updateintervall",
+            "Apps to start with this module:": "Apps, welche mit dem Modul gestartet werden sollen:",
+            "Apps": "Apps",
+            "Package": "Package",
+            "Device ID": "Geräte ID",
+            "Devicename": "Gerätename",
+            "Altidude": "Höhe",
+            "Longitude": "Längengrad",
+            "Latitude": "Breitengrad",
+            "Location Provide":"Standort angeben",
+            "Battery": "Batterie",
+            "Battery Temperature": "Batterie Temperatur",
+            "isPlugged": "Gesteckt",
+            "Plugged": "Gesteckt",
+            "SSID": "SSID",
+            "MAC Address": "MAC Adresse",
+            "IPv4":"IPv4",
+            "IPv6":"IPv6",
+            "Hostname IPv4": "Hostname IPv4",
+            "Hostname IPv6": "Hostname IPv6",
+            "Wifi Signal Level": "Wifi Signalpegel",
+            "Mobile Data": "Mobile Daten"
         }
     }
 }

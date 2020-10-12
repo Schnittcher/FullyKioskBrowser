@@ -14,7 +14,38 @@
             ]
         },       
         { "type": "PasswordTextBox", "name": "Password", "caption": "Password" },
-        { "type": "NumberSpinner", "name": "Updateinterval", "caption": "Updateinterval", "suffix": "seconds"}
+        { "type": "NumberSpinner", "name": "Updateinterval", "caption": "Updateinterval", "suffix": "seconds"},
+        { "type": "Label", "caption": "Apps to start with this module:" },
+        {
+          "type": "List",
+          "name": "Apps",
+          "rowCount": 15,
+          "add": true,
+          "delete": true,
+          "sort": {
+              "column": "AppName",
+              "direction": "ascending"
+          },
+          "columns": [{
+              "label": "App",
+              "name": "AppName",
+              "width": "150px",
+              "add": 1,
+              "edit": {
+                  "type": "ValidationTextBox"
+              }
+          }, {
+              "label": "Package",
+              "name": "Package",
+              "width": "auto",
+              "add": 1,
+              "edit": {
+                  "type": "ValidationTextBox"
+              }
+          }
+          ],
+          "values": []
+      }
     ],
     "actions": [],
     "status": []

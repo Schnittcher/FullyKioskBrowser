@@ -1,8 +1,13 @@
 <?php
 
 declare(strict_types=1);
+
+require_once __DIR__ . '/../libs/VariableProfileHelper.php';  // diverse Klassen
+
 class FKBDevice extends IPSModule
 {
+    use VariableProfileHelper;
+
     public function Create()
     {
         //Never delete this line!
@@ -11,6 +16,7 @@ class FKBDevice extends IPSModule
         $this->RegisterPropertyInteger('Port', 2323);
         $this->RegisterPropertyString('Password', '');
         $this->RegisterPropertyInteger('Updateinterval', 10);
+        $this->RegisterPropertyString('Apps', '[]');
 
         $this->RegisterVariableString('deviceId', $this->Translate('Device ID'));
         $this->RegisterVariableString('deviceName', $this->Translate('Device Name'));
@@ -91,6 +97,12 @@ class FKBDevice extends IPSModule
 
         $this->RegisterVariableInteger('Applications', $this->Translate('Applications'));
 
+        if (!IPS_VariableProfileExists('FKB.Apps')) {
+            $this->RegisterProfileIntegerEx('FKB.Apps', 'Database', '', '', []);
+        }
+        $this->RegisterVariableInteger('Apps', 'Apps', 'FKB.Apps', 5);
+        $this->EnableAction('Apps');
+
         $this->RegisterTimer('FKB_Update', 0, 'FKB_getDeviceInfo($_IPS[\'TARGET\']);');
     }
 
@@ -104,6 +116,7 @@ class FKBDevice extends IPSModule
     {
         //Never delete this line!
         parent::ApplyChanges();
+        $this->updateAppsList();
         $this->SetTimerInterval('FKB_Update', $this->ReadPropertyInteger('Updateinterval') * 1000);
     }
 
@@ -213,7 +226,13 @@ class FKBDevice extends IPSModule
             case 'toForeground':
                 $this->toForeground($Value);
                 break;
-            }
+            case 'Apps':
+                $AppsListString = $this->ReadPropertyString('Apps');
+                $Apps = json_decode($AppsListString);
+                $App = $Apps[$Value - 1];
+                $this->startApplication($App->Package);
+            break;
+        }
     }
 
     private function checkRequest($Value)
@@ -222,6 +241,30 @@ class FKBDevice extends IPSModule
             return true;
         } else {
             return false;
+        }
+    }
+
+    private function updateAppsList()
+    {
+        $AppsListString = $this->ReadPropertyString('Apps');
+
+        if ($AppsListString != '') {
+            if (IPS_VariableProfileExists('FKB.Apps')) {
+                IPS_DeleteVariableProfile('FKB.Apps');
+            }
+
+            $Associations = [];
+            $Value = 1;
+
+            $Apps = json_decode($AppsListString);
+            foreach ($Apps as $App) {
+                $Associations[] = [$Value++, $App->AppName, '', -1];
+                // associations only support up to 32 variables
+                if ($Value === 33) {
+                    break;
+                }
+            }
+            $this->RegisterProfileIntegerEx('FKB.Apps', 'Database', '', '', $Associations);
         }
     }
 
