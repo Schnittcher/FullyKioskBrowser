@@ -18,8 +18,10 @@ class FKBDevice extends IPSModule
         $this->RegisterPropertyInteger('Updateinterval', 10);
         $this->RegisterPropertyString('Apps', '[]');
 
+        $this->registerVariableProfiles();
+
         $this->RegisterVariableString('deviceId', $this->Translate('Device ID'));
-        $this->RegisterVariableString('deviceName', $this->Translate('Device Name'));
+        $this->RegisterVariableString('deviceName', $this->Translate('Devicename'));
         $this->RegisterVariableFloat('altitude', $this->Translate('Altidude'));
         $this->RegisterVariableFloat('longitude', $this->Translate('Longitude'));
         $this->RegisterVariableFloat('latitude', $this->Translate('Latitude'));
@@ -86,6 +88,7 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableBoolean('kioskLocked', $this->Translate('Kiosk Locked'), '~Switch');
         $this->RegisterVariableBoolean('isInForcedSleep', $this->Translate('In Forced Sleep'), '~Switch');
         $this->RegisterVariableBoolean('maintenanceMode', $this->Translate('Maintenance Mode'), '~Switch');
+        $this->EnableAction('maintenanceMode');
         $this->RegisterVariableBoolean('kioskMode', $this->Translate('Kiosk Mode'), '~Switch');
         $this->EnableAction('kioskMode');
         $this->RegisterVariableString('startUrl', $this->Translate('Start URL'));
@@ -95,13 +98,17 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableString('textToSpeech', $this->Translate('Text to Speech'));
         $this->EnableAction('textToSpeech');
 
-        $this->RegisterVariableInteger('Applications', $this->Translate('Applications'));
-
         if (!IPS_VariableProfileExists('FKB.Apps')) {
             $this->RegisterProfileIntegerEx('FKB.Apps', 'Database', '', '', []);
         }
-        $this->RegisterVariableInteger('Apps', 'Apps', 'FKB.Apps', 5);
+        $this->RegisterVariableInteger('Apps', $this->Translate('Apps'), 'FKB.Apps');
         $this->EnableAction('Apps');
+
+        $this->RegisterVariableInteger('DeviceControl', $this->Translate('Device Control'), 'FKB.DeviceControl');
+        $this->EnableAction('DeviceControl');
+
+        $this->RegisterVariableString('setOverlayMessage', $this->Translate('Set Overlay Message'));
+        $this->EnableAction('setOverlayMessage');
 
         $this->RegisterTimer('FKB_Update', 0, 'FKB_getDeviceInfo($_IPS[\'TARGET\']);');
     }
@@ -190,6 +197,59 @@ class FKBDevice extends IPSModule
         }
     }
 
+    public function popFragment()
+    {
+        $result = $this->sendRequest('?cmd=popFragment');
+        if ($this->checkRequest($result)) {
+            return true;
+        }
+    }
+
+    public function loadApkFile(string $Value)
+    {
+        $result = $this->sendRequest('/?cmd=loadApkFile&url='.urldecode($Value));
+        if ($this->checkRequest($result)) {
+            return true;
+        }
+    }
+
+    public function maintenanceMode(bool $Value)
+    {
+        if ($Value) {
+            $result = $this->sendRequest('?cmd=enableLockedMode');
+        } else {
+            $result = $this->sendRequest('?cmd=disableLockedMode');
+        }
+        if ($this->checkRequest($result)) {
+            $this->SetValue('maintenanceMode', $Value);
+            return true;
+        }
+    }
+
+    public function setOverlayMessage(string $Value)
+    {
+        $result = $this->sendRequest('?cmd=setOverlayMessage&text=' . urlencode($value));
+        return $this->checkRequest($result);
+    }
+
+    public function shutdownDevice()
+    {
+        $result = $this->sendRequest('?cmd=shutdownDevice');
+        return $this->checkRequest($result);
+    }
+
+    public function rebootDevice()
+    {
+        $result = $this->sendRequest('?cmd=rebootDevice');
+        return $this->checkRequest($result);
+    }
+
+    public function textToSpeech(string $value)
+    {
+        $result = $this->sendRequest('?cmd=textToSpeech&text=' . urlencode($value));
+        return $this->checkRequest($result);
+    }
+
     public function getDeviceInfo()
     {
         $result = $this->sendRequest('?cmd=getDeviceInfo');
@@ -197,12 +257,6 @@ class FKBDevice extends IPSModule
         foreach ($result as $key => $value) {
             $this->SetValue($key, $value);
         }
-    }
-
-    public function textToSpeech(string $value)
-    {
-        $result = $this->sendRequest('?cmd=textToSpeech&text=' . urlencode($value));
-        return $this->checkRequest($result);
     }
 
     public function RequestAction($Ident, $Value)
@@ -231,7 +285,23 @@ class FKBDevice extends IPSModule
                 $Apps = json_decode($AppsListString);
                 $App = $Apps[$Value - 1];
                 $this->startApplication($App->Package);
-            break;
+                break;
+            case 'maintenanceMode':
+                $this->maintenanceMode($Value);
+                break;
+            case 'setOverlayMessage':
+                $this->setOverlayMessage($Value);
+                break;
+            case 'DeviceControl':
+                switch ($Value) {
+                    case 0:
+                        $this->shutdownDevice();
+                        break;
+                    case 1:
+                        $this->rebootDevice();
+                        break;
+                }
+                break;
         }
     }
 
@@ -266,6 +336,16 @@ class FKBDevice extends IPSModule
             }
             $this->RegisterProfileIntegerEx('FKB.Apps', 'Database', '', '', $Associations);
         }
+    }
+
+    private function registerVariableProfiles()
+    {
+        //Shutdown / Reboot
+        $Associations[] = [0, $this->Translate('Shutdown'), '', -1];
+        $Associations[] = [1, $this->Translate('Reboot'), '', -1];
+        $this->RegisterProfileIntegerEx('FKB.DeviceControl', 'Control', '', '', $Associations);
+
+        //
     }
 
     private function sendRequest($params)
