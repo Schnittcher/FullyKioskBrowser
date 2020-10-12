@@ -191,9 +191,9 @@ class FKBDevice extends IPSModule
     {
         if ($Value) {
             $result = $this->sendRequest('?cmd=toForeground');
-        }
-        if ($this->checkRequest($result)) {
-            return true;
+            if ($this->checkRequest($result)) {
+                return true;
+            }
         }
     }
 
@@ -228,7 +228,7 @@ class FKBDevice extends IPSModule
 
     public function setOverlayMessage(string $Value)
     {
-        $result = $this->sendRequest('?cmd=setOverlayMessage&text=' . urlencode($value));
+        $result = $this->sendRequest('?cmd=setOverlayMessage&text=' . urlencode($Value));
         return $this->checkRequest($result);
     }
 
@@ -244,9 +244,9 @@ class FKBDevice extends IPSModule
         return $this->checkRequest($result);
     }
 
-    public function textToSpeech(string $value)
+    public function textToSpeech(string $Value)
     {
-        $result = $this->sendRequest('?cmd=textToSpeech&text=' . urlencode($value));
+        $result = $this->sendRequest('?cmd=textToSpeech&text=' . urlencode($Value));
         return $this->checkRequest($result);
     }
 
