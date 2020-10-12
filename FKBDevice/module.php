@@ -50,6 +50,8 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableString('SDK', $this->Translate('SDK'));
         $this->RegisterVariableString('webviewUA', $this->Translate('webviewUA'));
         $this->RegisterVariableString('foreground', $this->Translate('Foreground'));
+        $this->RegisterVariableBoolean('toForeground', $this->Translate('To Foreground'), '~Switch');
+        $this->EnableAction('toForeground');
         $this->RegisterVariableString('foregroundActivity', $this->Translate('Foreground Activity'));
         $this->RegisterVariableInteger('motionDetectorStatus', $this->Translate('Motion Detector Status'));
         $this->RegisterVariableBoolean('isDeviceAdmin', $this->Translate('Device Admin'));
@@ -69,17 +71,25 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableBoolean('isMenuOpen', $this->Translate('Menu Open'));
         $this->RegisterVariableString('topFragmentTag', $this->Translate('Top Fragment Tag'));
         $this->RegisterVariableBoolean('isInDaydream', $this->Translate('Daydream'), '~Switch');
+        $this->EnableAction('isInDaydream');
         $this->RegisterVariableString('appStartTime', $this->Translate('App Start Time'));
         $this->RegisterVariableBoolean('isRooted', $this->Translate('Rooted'), '~Switch');
         $this->RegisterVariableBoolean('isLicensed', $this->Translate('Licensed'), '~Switch');
         $this->RegisterVariableBoolean('isInScreensaver', $this->Translate('Screensaver'), '~Switch');
+        $this->EnableAction('isInScreensaver');
         $this->RegisterVariableBoolean('kioskLocked', $this->Translate('Kiosk Locked'), '~Switch');
         $this->RegisterVariableBoolean('isInForcedSleep', $this->Translate('In Forced Sleep'), '~Switch');
         $this->RegisterVariableBoolean('maintenanceMode', $this->Translate('Maintenance Mode'), '~Switch');
         $this->RegisterVariableBoolean('kioskMode', $this->Translate('Kiosk Mode'), '~Switch');
+        $this->EnableAction('kioskMode');
         $this->RegisterVariableString('startUrl', $this->Translate('Start URL'));
         $this->RegisterVariableString('currentTabIndex', $this->Translate('Current TabIndex'));
         $this->RegisterVariableString('currentPageUrl', $this->Translate('Current Page URL'));
+
+        $this->RegisterVariableString('textToSpeech', $this->Translate('Text to Speech'));
+        $this->EnableAction('textToSpeech');
+
+        $this->RegisterVariableInteger('Applications', $this->Translate('Applications'));
 
         $this->RegisterTimer('FKB_Update', 0, 'FKB_getDeviceInfo($_IPS[\'TARGET\']);');
     }
@@ -104,8 +114,66 @@ class FKBDevice extends IPSModule
         } else {
             $result = $this->sendRequest('?cmd=screenOff');
         }
-        if ($result['status'] == 'OK') {
+        if ($this->checkRequest($result)) {
             $this->SetValue('screenOn', $Value);
+            return true;
+        }
+    }
+
+    public function screensaver(bool $Value)
+    {
+        if ($Value) {
+            $result = $this->sendRequest('?cmd=startScreensaver');
+        } else {
+            $result = $this->sendRequest('?cmd=stopScreensaver');
+        }
+        if ($this->checkRequest($result)) {
+            $this->SetValue('isInScreensaver', $Value);
+            return true;
+        }
+    }
+
+    public function daydream(bool $Value)
+    {
+        if ($Value) {
+            $result = $this->sendRequest('?cmd=startDaydream');
+        } else {
+            $result = $this->sendRequest('?cmd=stopDaydream');
+        }
+        if ($this->checkRequest($result)) {
+            $this->SetValue('isInDaydream', $Value);
+            return true;
+        }
+    }
+
+    public function kioskMode(bool $Value)
+    {
+        if ($Value) {
+            $result = $this->sendRequest('?cmd=lockKiosk');
+        } else {
+            $result = $this->sendRequest('?cmd=unlockKiosk');
+        }
+        if ($this->checkRequest($result)) {
+            $this->SetValue('kioskMode', $Value);
+            return true;
+        }
+    }
+
+    public function startApplication(string $Value)
+    {
+        $result = $this->sendRequest('?cmd=startApplication&package=' . $Value);
+        if ($this->checkRequest($result)) {
+            return true;
+        }
+    }
+
+    public function toForeground(bool $Value)
+    {
+        if ($Value) {
+            $result = $this->sendRequest('?cmd=toForeground');
+        }
+        if ($this->checkRequest($result)) {
+            return true;
         }
     }
 
@@ -118,10 +186,10 @@ class FKBDevice extends IPSModule
         }
     }
 
-    public function playText(string $value)
+    public function textToSpeech(string $value)
     {
-        $result = $this->sendRequest('?cmd=textToSpeech&text=' . $value);
-        $this->LogMessage(print_r($result, true), KL_NOTIFY);
+        $result = $this->sendRequest('?cmd=textToSpeech&text=' . urlencode($value));
+        return $this->checkRequest($result);
     }
 
     public function RequestAction($Ident, $Value)
@@ -130,7 +198,31 @@ class FKBDevice extends IPSModule
             case 'screenOn':
                 $this->screen($Value);
                 break;
+            case 'textToSpeech':
+                $this->textToSpeech($Value);
+                break;
+            case 'isInScreensaver':
+                $this->screensaver($Value);
+                break;
+            case 'isInDaydream':
+                $this->daydream($Value);
+                break;
+            case 'kioskMode':
+                $this->kioskMode($Value);
+                break;
+            case 'toForeground':
+                $this->toForeground($Value);
+                break;
             }
+    }
+
+    private function checkRequest($Value)
+    {
+        if ($Value['status'] == 'OK') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private function sendRequest($params)
