@@ -20,23 +20,23 @@ class FKBDevice extends IPSModule
 
         $this->registerVariableProfiles();
 
-        $this->RegisterVariableString('deviceId', $this->Translate('Device ID'));
-        $this->RegisterVariableString('deviceName', $this->Translate('Devicename'));
+        $this->RegisterVariableString('deviceId', $this->Translate('Device ID'), 'FKB.Information');
+        $this->RegisterVariableString('deviceName', $this->Translate('Devicename'), 'FKB.Information');
         $this->RegisterVariableFloat('altitude', $this->Translate('Altidude'));
         $this->RegisterVariableFloat('longitude', $this->Translate('Longitude'));
         $this->RegisterVariableFloat('latitude', $this->Translate('Latitude'));
-        $this->RegisterVariableString('locationProvide', $this->Translate('Location Provide'));
-        $this->RegisterVariableFloat('batteryLevel', $this->Translate('Battery'));
-        $this->RegisterVariableFloat('batteryTemperature', $this->Translate('Battery Temperature'));
-        $this->RegisterVariableBoolean('isPlugged', $this->Translate('isPlugged'), '~Switch');
-        $this->RegisterVariableBoolean('plugged', $this->Translate('Plugged'), '~Switch');
+        $this->RegisterVariableString('locationProvide', $this->Translate('Location Provide'), 'FKB.Information');
+        $this->RegisterVariableInteger('batteryLevel', $this->Translate('Battery'), '~Battery.100');
+        $this->RegisterVariableFloat('batteryTemperature', $this->Translate('Battery Temperature'), '~Temperature');
+        $this->RegisterVariableBoolean('isPlugged', $this->Translate('isPlugged'), 'FKB.YesNo');
+        $this->RegisterVariableBoolean('plugged', $this->Translate('Plugged'), 'FKB.YesNo');
 
-        $this->RegisterVariableString('SSID', $this->Translate('SSID'));
-        $this->RegisterVariableString('Mac', $this->Translate('MAC Address'));
-        $this->RegisterVariableString('ip4', $this->Translate('IPv4'));
-        $this->RegisterVariableString('ip6', $this->Translate('IPv6'));
-        $this->RegisterVariableString('hostname4', $this->Translate('Hostname IPv4'));
-        $this->RegisterVariableString('hostname6', $this->Translate('Hostname IPv6'));
+        $this->RegisterVariableString('SSID', $this->Translate('SSID'), 'FKB.Network');
+        $this->RegisterVariableString('Mac', $this->Translate('MAC Address'), 'FKB.Network');
+        $this->RegisterVariableString('ip4', $this->Translate('IPv4'), 'FKB.Network');
+        $this->RegisterVariableString('ip6', $this->Translate('IPv6'), 'FKB.Network');
+        $this->RegisterVariableString('hostname4', $this->Translate('Hostname IPv4'), 'FKB.Network');
+        $this->RegisterVariableString('hostname6', $this->Translate('Hostname IPv6'), 'FKB.Network');
         $this->RegisterVariableInteger('wifiSignalLevel', $this->Translate('Wifi Signal Level'));
         $this->RegisterVariableBoolean('isMobileDataEnabled', $this->Translate('Mobile Data'), '~Switch');
 
@@ -47,55 +47,55 @@ class FKBDevice extends IPSModule
         $this->EnableAction('screenOn');
         $this->RegisterVariableBoolean('keyguardLocked', $this->Translate('Keyguard Locked'), '~Switch');
 
-        $this->RegisterVariableString('locale', $this->Translate('Locale'));
-        $this->RegisterVariableString('serial', $this->Translate('Serial'));
-        $this->RegisterVariableString('version', $this->Translate('Version'));
-        $this->RegisterVariableString('versionCode', $this->Translate('Version Code'));
-        $this->RegisterVariableString('build', $this->Translate('Build'));
-        $this->RegisterVariableString('model', $this->Translate('Model'));
-        $this->RegisterVariableString('manufacturer', $this->Translate('Manufacturer'));
-        $this->RegisterVariableString('androidVersion', $this->Translate('Android Version'));
-        $this->RegisterVariableString('SDK', $this->Translate('SDK'));
-        $this->RegisterVariableString('webviewUA', $this->Translate('webviewUA'));
-        $this->RegisterVariableString('foreground', $this->Translate('Foreground'));
-        $this->RegisterVariableBoolean('toForeground', $this->Translate('To Foreground'), '~Switch');
+        $this->RegisterVariableString('locale', $this->Translate('Locale'), 'FKB.Information');
+        $this->RegisterVariableString('serial', $this->Translate('Serial'), 'FKB.Information');
+        $this->RegisterVariableString('version', $this->Translate('Version'), 'FKB.Information');
+        $this->RegisterVariableString('versionCode', $this->Translate('Version Code'), 'FKB.Information');
+        $this->RegisterVariableString('build', $this->Translate('Build'), 'FKB.Information');
+        $this->RegisterVariableString('model', $this->Translate('Model'), 'FKB.Information');
+        $this->RegisterVariableString('manufacturer', $this->Translate('Manufacturer'), 'FKB.Information');
+        $this->RegisterVariableString('androidVersion', $this->Translate('Android Version'), 'FKB.Information');
+        $this->RegisterVariableString('SDK', $this->Translate('SDK'), 'FKB.Information');
+        $this->RegisterVariableString('webviewUA', $this->Translate('webviewUA'), 'FKB.Information');
+        $this->RegisterVariableString('foreground', $this->Translate('Foreground'), 'FKB.Information');
+        $this->RegisterVariableInteger('toForeground', $this->Translate('To Foreground'), 'FKB.Set');
         $this->EnableAction('toForeground');
-        $this->RegisterVariableString('foregroundActivity', $this->Translate('Foreground Activity'));
+        $this->RegisterVariableString('foregroundActivity', $this->Translate('Foreground Activity'), 'FKB.Information');
         $this->RegisterVariableInteger('motionDetectorStatus', $this->Translate('Motion Detector Status'));
-        $this->RegisterVariableBoolean('isDeviceAdmin', $this->Translate('Device Admin'));
-        $this->RegisterVariableBoolean('isDeviceOwner', $this->Translate('Device Owner'));
-        $this->RegisterVariableInteger('internalStorageFreeSpace', $this->Translate('Internal Storage Free Space'));
-        $this->RegisterVariableInteger('internalStorageTotalSpace', $this->Translate('Internal Storage Total Space'));
-        $this->RegisterVariableInteger('ramUsedMemory', $this->Translate('Ram Used Memory'));
-        $this->RegisterVariableInteger('ramFreeMemory', $this->Translate('Ram Free Memory'));
-        $this->RegisterVariableInteger('ramTotalMemory', $this->Translate('Ram Total Memory'));
+        $this->RegisterVariableBoolean('isDeviceAdmin', $this->Translate('Device Admin'), 'FKB.YesNo');
+        $this->RegisterVariableBoolean('isDeviceOwner', $this->Translate('Device Owner'), 'FKB.YesNo');
+        $this->RegisterVariableInteger('internalStorageFreeSpace', $this->Translate('Internal Storage Free Space'), 'FKB.SpaceGB');
+        $this->RegisterVariableInteger('internalStorageTotalSpace', $this->Translate('Internal Storage Total Space'), 'FKB.SpaceGB');
+        $this->RegisterVariableInteger('ramUsedMemory', $this->Translate('Ram Used Memory'), 'FKB.SpaceMB');
+        $this->RegisterVariableInteger('ramFreeMemory', $this->Translate('Ram Free Memory'), 'FKB.SpaceMB');
+        $this->RegisterVariableInteger('ramTotalMemory', $this->Translate('Ram Total Memory'), 'FKB.SpaceMB');
 
-        $this->RegisterVariableInteger('appUsedMemory', $this->Translate('App Used Memory'));
-        $this->RegisterVariableInteger('appFreeMemory', $this->Translate('App Free Memory'));
-        $this->RegisterVariableInteger('appTotalMemory', $this->Translate('App Total Memory'));
+        $this->RegisterVariableInteger('appUsedMemory', $this->Translate('App Used Memory'), 'FKB.SpaceMB');
+        $this->RegisterVariableInteger('appFreeMemory', $this->Translate('App Free Memory'), 'FKB.SpaceMB');
+        $this->RegisterVariableInteger('appTotalMemory', $this->Translate('App Total Memory'), 'FKB.SpaceMB');
 
-        $this->RegisterVariableInteger('displayHeightPixels', $this->Translate('Display Height Pixels'));
-        $this->RegisterVariableInteger('displayWidthPixels', $this->Translate('Display Width Pixels'));
-        $this->RegisterVariableBoolean('isMenuOpen', $this->Translate('Menu Open'));
-        $this->RegisterVariableString('topFragmentTag', $this->Translate('Top Fragment Tag'));
+        $this->RegisterVariableInteger('displayHeightPixels', $this->Translate('Display Height Pixels'), 'FKB.Resolution');
+        $this->RegisterVariableInteger('displayWidthPixels', $this->Translate('Display Width Pixels'), 'FKB.Resolution');
+        $this->RegisterVariableBoolean('isMenuOpen', $this->Translate('Menu Open'), 'FKB.YesNo');
+        $this->RegisterVariableString('topFragmentTag', $this->Translate('Top Fragment Tag'), 'FKB.Information');
         $this->RegisterVariableBoolean('isInDaydream', $this->Translate('Daydream'), '~Switch');
         $this->EnableAction('isInDaydream');
-        $this->RegisterVariableString('appStartTime', $this->Translate('App Start Time'));
-        $this->RegisterVariableBoolean('isRooted', $this->Translate('Rooted'), '~Switch');
-        $this->RegisterVariableBoolean('isLicensed', $this->Translate('Licensed'), '~Switch');
+        $this->RegisterVariableString('appStartTime', $this->Translate('App Start Time'), 'FKB.Information');
+        $this->RegisterVariableBoolean('isRooted', $this->Translate('Rooted'), 'FKB.YesNo');
+        $this->RegisterVariableBoolean('isLicensed', $this->Translate('Licensed'), 'FKB.YesNo');
         $this->RegisterVariableBoolean('isInScreensaver', $this->Translate('Screensaver'), '~Switch');
         $this->EnableAction('isInScreensaver');
-        $this->RegisterVariableBoolean('kioskLocked', $this->Translate('Kiosk Locked'), '~Switch');
-        $this->RegisterVariableBoolean('isInForcedSleep', $this->Translate('In Forced Sleep'), '~Switch');
+        $this->RegisterVariableBoolean('kioskLocked', $this->Translate('Kiosk Locked'), 'FKB.YesNo');
+        $this->RegisterVariableBoolean('isInForcedSleep', $this->Translate('In Forced Sleep'), 'FKB.YesNo');
         $this->RegisterVariableBoolean('maintenanceMode', $this->Translate('Maintenance Mode'), '~Switch');
         $this->EnableAction('maintenanceMode');
         $this->RegisterVariableBoolean('kioskMode', $this->Translate('Kiosk Mode'), '~Switch');
         $this->EnableAction('kioskMode');
         $this->RegisterVariableString('startUrl', $this->Translate('Start URL'));
-        $this->RegisterVariableString('currentTabIndex', $this->Translate('Current TabIndex'));
-        $this->RegisterVariableString('currentPageUrl', $this->Translate('Current Page URL'));
+        $this->RegisterVariableString('currentTabIndex', $this->Translate('Current TabIndex'), 'FKB.Information');
+        $this->RegisterVariableString('currentPageUrl', $this->Translate('Current Page URL'), 'FKB.Information');
 
-        $this->RegisterVariableString('textToSpeech', $this->Translate('Text to Speech'));
+        $this->RegisterVariableString('textToSpeech', $this->Translate('Text to Speech'), 'FKB.TextToSpeech');
         $this->EnableAction('textToSpeech');
 
         if (!IPS_VariableProfileExists('FKB.Apps')) {
@@ -187,13 +187,11 @@ class FKBDevice extends IPSModule
         }
     }
 
-    public function toForeground(bool $Value)
+    public function toForeground()
     {
-        if ($Value) {
-            $result = $this->sendRequest('?cmd=toForeground');
-            if ($this->checkRequest($result)) {
-                return true;
-            }
+        $result = $this->sendRequest('?cmd=toForeground');
+        if ($this->checkRequest($result)) {
+            return true;
         }
     }
 
@@ -207,7 +205,7 @@ class FKBDevice extends IPSModule
 
     public function loadApkFile(string $Value)
     {
-        $result = $this->sendRequest('/?cmd=loadApkFile&url='.urldecode($Value));
+        $result = $this->sendRequest('/?cmd=loadApkFile&url=' . urldecode($Value));
         if ($this->checkRequest($result)) {
             return true;
         }
@@ -255,8 +253,37 @@ class FKBDevice extends IPSModule
         $result = $this->sendRequest('?cmd=getDeviceInfo');
 
         foreach ($result as $key => $value) {
-            $this->SetValue($key, $value);
+            switch ($key) {
+                case 'internalStorageFreeSpace':
+                case 'internalStorageTotalSpace':
+                    $this->SetValue($key, round($value / (1024 * 1024 * 1024), 0));
+                    break;
+                case 'ramUsedMemory':
+                case 'ramFreeMemory':
+                case 'ramTotalMemory':
+                case 'appUsedMemory':
+                case 'appFreeMemory':
+                case 'appTotalMemory':
+                    $this->SetValue($key, round($value / (1024 * 1024), 0));
+                    break;
+                default:
+                    $this->SetValue($key, $value);
+                    break;
+            }
         }
+    }
+
+    public function setBooleanSetting(string $Key, bool $Value)
+    {
+        $Value = $Value ? 'true' : 'false';
+        $result = $this->sendRequest('?cmd=setBooleanSetting&key=' . $Key . '&value=' . $Value);
+        return $this->checkRequest($result);
+    }
+
+    public function setStringSetting(string $Key, string $Value)
+    {
+        $result = $this->sendRequest('?cmd=setStringSetting&key=' . $Key . '&value=' . $Value);
+        return $this->checkRequest($result);
     }
 
     public function RequestAction($Ident, $Value)
@@ -278,7 +305,7 @@ class FKBDevice extends IPSModule
                 $this->kioskMode($Value);
                 break;
             case 'toForeground':
-                $this->toForeground($Value);
+                $this->toForeground();
                 break;
             case 'Apps':
                 $AppsListString = $this->ReadPropertyString('Apps');
@@ -341,11 +368,64 @@ class FKBDevice extends IPSModule
     private function registerVariableProfiles()
     {
         //Shutdown / Reboot
+        $Associations = [];
         $Associations[] = [0, $this->Translate('Shutdown'), '', -1];
         $Associations[] = [1, $this->Translate('Reboot'), '', -1];
-        $this->RegisterProfileIntegerEx('FKB.DeviceControl', 'Control', '', '', $Associations);
+        $this->RegisterProfileIntegerEx('FKB.DeviceControl', 'Remote', '', '', $Associations);
 
-        //
+        // Yes / No
+        $Associations = [];
+        $Associations[] = [true, $this->Translate('Yes'), '', 0x00FF00];
+        $Associations[] = [false, $this->Translate('No'), '', 0xFF0000];
+        $this->RegisterProfileBooleanEx('FKB.YesNo', 'Information', '', '', $Associations);
+
+        // Set
+        $Associations = [];
+        $Associations[] = [0, $this->Translate('Set'), '', -1];
+        $this->RegisterProfileIntegerEx('FKB.Set', 'Remote', '', '', $Associations);
+
+        // Space
+        $this->RegisterProfileIntegerEx('FKB.SpaceMB', 'Graph', '', ' MB', []);
+        $this->RegisterProfileIntegerEx('FKB.SpaceGB', 'Graph', '', ' GB', []);
+
+        // Resolution
+        $this->RegisterProfileIntegerEx('FKB.Resolution', 'TV', '', ' px', []);
+
+        // TextToSpeech
+        $Name = 'FKB.TextToSpeech';
+        if (!IPS_VariableProfileExists($Name)) {
+            IPS_CreateVariableProfile($Name, VARIABLETYPE_STRING);
+        } else {
+            $profile = IPS_GetVariableProfile($Name);
+            if ($profile['ProfileType'] != VARIABLETYPE_STRING) {
+                throw new Exception('Variable profile type does not match for profile ' . $Name, E_USER_WARNING);
+            }
+        }
+        IPS_SetVariableProfileIcon($Name, 'Speaker');
+
+        // Information
+        $Name = 'FKB.Information';
+        if (!IPS_VariableProfileExists($Name)) {
+            IPS_CreateVariableProfile($Name, VARIABLETYPE_STRING);
+        } else {
+            $profile = IPS_GetVariableProfile($Name);
+            if ($profile['ProfileType'] != VARIABLETYPE_STRING) {
+                throw new Exception('Variable profile type does not match for profile ' . $Name, E_USER_WARNING);
+            }
+        }
+        IPS_SetVariableProfileIcon($Name, 'Information');
+
+        // Information
+        $Name = 'FKB.Network';
+        if (!IPS_VariableProfileExists($Name)) {
+            IPS_CreateVariableProfile($Name, VARIABLETYPE_STRING);
+        } else {
+            $profile = IPS_GetVariableProfile($Name);
+            if ($profile['ProfileType'] != VARIABLETYPE_STRING) {
+                throw new Exception('Variable profile type does not match for profile ' . $Name, E_USER_WARNING);
+            }
+        }
+        IPS_SetVariableProfileIcon($Name, 'Network');
     }
 
     private function sendRequest($params)

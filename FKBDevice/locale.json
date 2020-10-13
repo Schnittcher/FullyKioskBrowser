@@ -73,7 +73,10 @@
             "Current Page URL": "Aktuelle Webseite",
             "Text to Speech": "Vorlesen",
 			"Device Control": "Gerätesteuerung",
-			"Set Overlay Message": "Überlagerungsnachricht einstellen"
+            "Set Overlay Message": "Überlagerungsnachricht einstellen",
+            "Yes": "Ja",
+            "No": "Nein",
+            "Set": "Setzen"
         }
     }
 }
