@@ -1,67 +1,173 @@
 # FKBDevice
-Beschreibung des Moduls.
+   Dieses Modul ermöglicht es, ein Android Tablet mit der installierten Fully Kiosk Browser App fernzusteuern.
+     
+   ## Inhaltverzeichnis
+   1. [Konfiguration](#1-konfiguration)
+   2. [Funktionen](#2-funktionen)
+   
+   ## 1. Konfiguration
+   
+   Feld | Beschreibung
+   ------------ | ----------------
+   Host | IP-Adresse der Adnroid Tablets
+   Port | Port der REST-API von der Fully Kiosk Browser App
+   Passwort | Passwort für die REST-API
+   Updateintervall | Aktualisierungsintervall in Sekunden
+   App | In der Tabelle werden die Apps eingetragen, die über das Modul gestartet werden dürfen Beispiel: App: IPSView Package: brownson.ipsviewandroid
+   
+   ## 2. Funktionen
 
-### Inhaltsverzeichnis
+   ```php
+   FKB_screen(bool $Value);
+   ```
+   Mit dieser Funktion kann das Display ein- bzw. ausgeschaltet werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_screen(12345, true); //Einschalten
+   FKB_screen(12345, false); //Auschalten
+   ```
 
-1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-voraussetzungen)
-3. [Software-Installation](#3-software-installation)
-4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
-5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
-6. [WebFront](#6-webfront)
-7. [PHP-Befehlsreferenz](#7-php-befehlsreferenz)
+   ```php
+   FKB_screensaver(bool $Value);
+   ```
+   Mit dieser Funktion kann der Bildschirmschoner ein- bzw. ausgeschaltet werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_screensaver(12345, true); //Einschalten
+   FKB_screensaver(12345, false); //Auschalten
+   ```
 
-### 1. Funktionsumfang
+   ```php
+   FKB_daydream(bool $Value);
+   ```
+   Mit dieser Funktion kann Daydream ein- bzw. ausgeschaltet werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_daydream(12345, true); //Einschalten
+   FKB_daydream(12345, false); //Auschalten
+   ```
 
-*
+   ```php
+   FKB_kioskMode(bool $Value);
+   ```
+   Mit dieser Funktion kann der Kiosk Mode ein- bzw. ausgeschaltet werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_kioskMode(12345, true); //Einschalten
+   FKB_kioskMode(12345, false); //Auschalten
+   ```
 
-### 2. Vorraussetzungen
+   ```php
+   FKB_startApplication(string $Value);
+   ```
+   Mit dieser Funktion kann eine App auf dem Tablet gestartet werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_startApplication(12345, 'ipsviewandroid'); //IPSView wird auf dem Tablet gestartet
+   ```
 
-- IP-Symcon ab Version 5.0
+   ```php
+   FKB_toForeground(integer $InstanceID);
+   ```
+   Mit dieser Funktion wird die Fully Kiosk Browser App in der Vordergrund geholt.
+ 
+   **Beispiel:**
+   ```php
+   FKB_toForeground(12345); //IPSView wird auf dem Tablet gestartet
+   ```
 
-### 3. Software-Installation
+   ```php
+   FKB_popFragment(integer $InstanceID);
+   ```
+   ???
+ 
+   **Beispiel:**
+   ```php
+   FKB_popFragment(12345); //???
+   ```
 
-* Über den Module Store das 'FKBDevice'-Modul installieren.
-* Alternativ über das Module Control folgende URL hinzufügen
+   ```php
+   FKB_loadApkFile(integer $InstanceID, string $Value);
+   ```
+   Mit dieser Funktion kann eine neue App auf dem Tablet installiert werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_loadApkFile(12345,'URL'); //Die App von der URL wird installiert
+   ```
 
-### 4. Einrichten der Instanzen in IP-Symcon
+   ```php
+   FKB_maintenanceMode(integer $InstanceID, bool $Value);
+   ```
+   Mit dieser Funktion kann der Wartungsmodus ein- bzw. ausgeschaltet werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_maintenanceMode(12345, true); //Wartungsmodus ein
+   FKB_maintenanceMode(12345, false); //Wartungsmodus aus
+   ```
 
- Unter 'Instanz hinzufügen' kann das 'FKBDevice'-Modul mithilfe des Schnellfilters gefunden werden.  
-	- Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
+   ```php
+   FKB_setOverlayMessage(integer $InstanceID, string $Value);
+   ```
+   Mit dieser Funktion kann eine Nachricht auf dem Tablet angezeigt werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_setOverlayMessage(12345, true); //Wartungsmodus ein
+   ```
 
-__Konfigurationsseite__:
+   ```php
+   FKB_shutdownDevice(integer $InstanceID);
+   ```
+   Mit dieser Funktion kann das Gerät ausgeschaltet werden. (Nur wenn es gerootet ist!)
+ 
+   **Beispiel:**
+   ```php
+   FKB_shutdownDevice(12345); //Gerät ausschalten
+   ```
 
-Name     | Beschreibung
--------- | ------------------
-         |
-         |
+   ```php
+   FKB_rebootDevice(integer $InstanceID);
+   ```
+   Mit dieser Funktion kann das Gerät neugestartet werden. (Nur wenn es gerootet ist!)
+ 
+   **Beispiel:**
+   ```php
+   FKB_rebootDevice(12345); //Gerät neustarten
+   ```
 
-### 5. Statusvariablen und Profile
+   ```php
+   FKB_textToSpeech(integer $InstanceID, string $Value);
+   ```
+   Mit dieser Funktion kann ein Text auf dem Gerät wiedergegeben werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_textToSpeech(12345, 'Hallo, IP-Symcon ist toll!'); //Der Text "Hallo, IP-Symcon ist toll!" wird auf dem Gerät wiedergegeben.
+   ```
 
-Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
+   ```php
+   FKB_setBooleanSetting(integer $InstanceID, string $Key, bool $Value);
+   ```
+   Mit dieser Funktion können boolesche Einstellungen auf dem Gerät verändert werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_setBooleanSetting(12345, 'Key', true); //Einstellung "Key" wird auf true gesetzt
+   ```
 
-#### Statusvariablen
-
-Name   | Typ     | Beschreibung
------- | ------- | ------------
-       |         |
-       |         |
-
-#### Profile
-
-Name   | Typ
------- | -------
-       |
-       |
-
-### 6. WebFront
-
-Die Funktionalität, die das Modul im WebFront bietet.
-
-### 7. PHP-Befehlsreferenz
-
-`boolean FKB_BeispielFunktion(integer $InstanzID);`
-Erklärung der Funktion.
-
-Beispiel:
-`FKB_BeispielFunktion(12345);`
+   ```php
+   FKB_setStringSetting(integer $InstanceID, string $Key, string $Value);
+   ```
+   Mit dieser Funktion können alle anderen Einstellungen auf dem Gerät verändert werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_setStringSetting(12345, 'screenBrightness', '100'); //Helligkeit wird auf 100 gesetzt
+   ```
