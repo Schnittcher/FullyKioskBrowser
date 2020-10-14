@@ -17,9 +17,7 @@
    
    ## 2. Funktionen
 
-   ```php
-   FKB_screen(bool $Value);
-   ```
+   ### FKB_screen(integer $InstanceID, bool $Value)
    Mit dieser Funktion kann das Display ein- bzw. ausgeschaltet werden.
  
    **Beispiel:**
@@ -28,9 +26,7 @@
    FKB_screen(12345, false); //Auschalten
    ```
 
-   ```php
-   FKB_screensaver(bool $Value);
-   ```
+   ### FKB_screensaver(integer $InstanceID, bool $Value)
    Mit dieser Funktion kann der Bildschirmschoner ein- bzw. ausgeschaltet werden.
  
    **Beispiel:**
@@ -39,9 +35,7 @@
    FKB_screensaver(12345, false); //Auschalten
    ```
 
-   ```php
-   FKB_daydream(bool $Value);
-   ```
+   ### FKB_daydream(integer $InstanceID, bool $Value)
    Mit dieser Funktion kann Daydream ein- bzw. ausgeschaltet werden.
  
    **Beispiel:**
@@ -50,9 +44,7 @@
    FKB_daydream(12345, false); //Auschalten
    ```
 
-   ```php
-   FKB_kioskMode(bool $Value);
-   ```
+   ### FKB_kioskMode(integer $InstanceID. bool $Value)
    Mit dieser Funktion kann der Kiosk Mode ein- bzw. ausgeschaltet werden.
  
    **Beispiel:**
@@ -61,9 +53,7 @@
    FKB_kioskMode(12345, false); //Auschalten
    ```
 
-   ```php
-   FKB_startApplication(string $Value);
-   ```
+   ### FKB_startApplication(integer $InstanceID, string $Value)
    Mit dieser Funktion kann eine App auf dem Tablet gestartet werden.
  
    **Beispiel:**
@@ -71,9 +61,7 @@
    FKB_startApplication(12345, 'ipsviewandroid'); //IPSView wird auf dem Tablet gestartet
    ```
 
-   ```php
-   FKB_toForeground(integer $InstanceID);
-   ```
+   ### FKB_toForeground(integer $InstanceID)
    Mit dieser Funktion wird die Fully Kiosk Browser App in der Vordergrund geholt.
  
    **Beispiel:**
@@ -81,9 +69,7 @@
    FKB_toForeground(12345); //IPSView wird auf dem Tablet gestartet
    ```
 
-   ```php
-   FKB_popFragment(integer $InstanceID);
-   ```
+   ### FKB_popFragment(integer $InstanceID)
    ???
  
    **Beispiel:**
@@ -91,9 +77,7 @@
    FKB_popFragment(12345); //???
    ```
 
-   ```php
-   FKB_loadApkFile(integer $InstanceID, string $Value);
-   ```
+   ### FKB_loadApkFile(integer $InstanceID, string $Value)
    Mit dieser Funktion kann eine neue App auf dem Tablet installiert werden.
  
    **Beispiel:**
@@ -101,9 +85,7 @@
    FKB_loadApkFile(12345,'URL'); //Die App von der URL wird installiert
    ```
 
-   ```php
-   FKB_maintenanceMode(integer $InstanceID, bool $Value);
-   ```
+   ### FKB_maintenanceMode(integer $InstanceID, bool $Value)
    Mit dieser Funktion kann der Wartungsmodus ein- bzw. ausgeschaltet werden.
  
    **Beispiel:**
@@ -112,9 +94,7 @@
    FKB_maintenanceMode(12345, false); //Wartungsmodus aus
    ```
 
-   ```php
-   FKB_setOverlayMessage(integer $InstanceID, string $Value);
-   ```
+   ### FKB_setOverlayMessage(integer $InstanceID, string $Value)
    Mit dieser Funktion kann eine Nachricht auf dem Tablet angezeigt werden.
  
    **Beispiel:**
@@ -122,9 +102,7 @@
    FKB_setOverlayMessage(12345, true); //Wartungsmodus ein
    ```
 
-   ```php
-   FKB_shutdownDevice(integer $InstanceID);
-   ```
+   ### FKB_shutdownDevice(integer $InstanceID)
    Mit dieser Funktion kann das Gerät ausgeschaltet werden. (Nur wenn es gerootet ist!)
  
    **Beispiel:**
@@ -132,9 +110,7 @@
    FKB_shutdownDevice(12345); //Gerät ausschalten
    ```
 
-   ```php
-   FKB_rebootDevice(integer $InstanceID);
-   ```
+   ### FKB_rebootDevice(integer $InstanceID)
    Mit dieser Funktion kann das Gerät neugestartet werden. (Nur wenn es gerootet ist!)
  
    **Beispiel:**
@@ -142,9 +118,7 @@
    FKB_rebootDevice(12345); //Gerät neustarten
    ```
 
-   ```php
-   FKB_textToSpeech(integer $InstanceID, string $Value);
-   ```
+   ### FKB_textToSpeech(integer $InstanceID, string $Value)
    Mit dieser Funktion kann ein Text auf dem Gerät wiedergegeben werden.
  
    **Beispiel:**
@@ -152,9 +126,7 @@
    FKB_textToSpeech(12345, 'Hallo, IP-Symcon ist toll!'); //Der Text "Hallo, IP-Symcon ist toll!" wird auf dem Gerät wiedergegeben.
    ```
 
-   ```php
-   FKB_setBooleanSetting(integer $InstanceID, string $Key, bool $Value);
-   ```
+   ### FKB_setBooleanSetting(integer $InstanceID, string $Key, bool $Value)
    Mit dieser Funktion können boolesche Einstellungen auf dem Gerät verändert werden.
  
    **Beispiel:**
@@ -162,9 +134,7 @@
    FKB_setBooleanSetting(12345, 'Key', true); //Einstellung "Key" wird auf true gesetzt
    ```
 
-   ```php
-   FKB_setStringSetting(integer $InstanceID, string $Key, string $Value);
-   ```
+   ### FKB_setStringSetting(integer $InstanceID, string $Key, string $Value)
    Mit dieser Funktion können alle anderen Einstellungen auf dem Gerät verändert werden.
  
    **Beispiel:**
