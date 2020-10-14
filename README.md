@@ -17,7 +17,7 @@
 ## 1. Voraussetzungen
 
 * mindestens IPS Version 5.0
-* Fully Kiosk Browser Plus Lizenz & aktivieren Remotezugriff
+* Fully Kiosk Browser Plus Lizenz & aktiver Remotezugriff
 
 ## 2. Enthaltene Module
 
