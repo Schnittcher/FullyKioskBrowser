@@ -5,6 +5,7 @@
             "Port": "Port",
             "Password": "Passwort",
             "Updateinterval": "Updateintervall",
+            "seconds": "Sekunden",
             "Apps to start with this module:": "Apps, welche mit dem Modul gestartet werden sollen:",
             "Apps": "Apps",
             "Package": "Package",
