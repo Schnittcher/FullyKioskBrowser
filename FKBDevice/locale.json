@@ -77,7 +77,8 @@
             "Set Overlay Message": "Überlagerungsnachricht einstellen",
             "Yes": "Ja",
             "No": "Nein",
-            "Set": "Setzen"
+            "Set": "Setzen",
+            "MQTT Connected": "MQTT verbunden"
         }
     }
 }

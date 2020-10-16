@@ -98,6 +98,8 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableString('textToSpeech', $this->Translate('Text to Speech'), 'FKB.TextToSpeech', 56);
         $this->EnableAction('textToSpeech');
 
+        $this->RegisterVariableBoolean('mqttConnected ', $this->Translate('MQTT Connected'), 'FKB.YesNo', 66);
+
         if (!IPS_VariableProfileExists('FKB.Apps')) {
             $this->RegisterProfileIntegerEx('FKB.Apps', 'Database', '', '', []);
         }
