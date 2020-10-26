@@ -78,7 +78,9 @@
             "Yes": "Ja",
             "No": "Nein",
             "Set": "Setzen",
-            "MQTT Connected": "MQTT verbunden"
+            "MQTT Connected": "MQTT verbunden",
+            "External Storage Free Space": "externer Speicher frei",
+            "External Storage Total Space": "externer Speicher gesamt"
         }
     }
 }

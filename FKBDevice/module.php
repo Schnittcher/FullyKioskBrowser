@@ -100,6 +100,9 @@ class FKBDevice extends IPSModule
 
         $this->RegisterVariableBoolean('mqttConnected', $this->Translate('MQTT Connected'), 'FKB.YesNo', 66);
 
+        $this->RegisterVariableInteger('externalStorageFreeSpace', $this->Translate('External Storage Free Space'), 'FKB.SpaceGB', 67);
+        $this->RegisterVariableInteger('externalStorageTotalSpace', $this->Translate('External Storage Total Space'), 'FKB.SpaceGB', 68);
+
         if (!IPS_VariableProfileExists('FKB.Apps')) {
             $this->RegisterProfileIntegerEx('FKB.Apps', 'Database', '', '', []);
         }
@@ -254,24 +257,34 @@ class FKBDevice extends IPSModule
     {
         $result = $this->sendRequest('?cmd=getDeviceInfo');
 
-        foreach ($result as $key => $value) {
-            switch ($key) {
-                case 'internalStorageFreeSpace':
-                case 'internalStorageTotalSpace':
-                    $this->SetValue($key, round($value / (1024 * 1024 * 1024), 0));
-                    break;
-                case 'ramUsedMemory':
-                case 'ramFreeMemory':
-                case 'ramTotalMemory':
-                case 'appUsedMemory':
-                case 'appFreeMemory':
-                case 'appTotalMemory':
-                    $this->SetValue($key, round($value / (1024 * 1024), 0));
-                    break;
-                default:
-                    $this->SetValue($key, $value);
-                    break;
+        if ($result != false) {
+            foreach ($result as $key => $value) {
+                if (!$this->GetIDForIdent($key)) {
+                    $this->SendDebug('Invalid Ident', $key, 0);
+                    continue;
+                }
+                switch ($key) {
+                    case 'internalStorageFreeSpace':
+                    case 'internalStorageTotalSpace':
+                    case 'externalStorageFreeSpace':
+                    case 'externalStorageTotalSpace':
+                        $this->SetValue($key, round($value / (1024 * 1024 * 1024), 0));
+                        break;
+                    case 'ramUsedMemory':
+                    case 'ramFreeMemory':
+                    case 'ramTotalMemory':
+                    case 'appUsedMemory':
+                    case 'appFreeMemory':
+                    case 'appTotalMemory':
+                        $this->SetValue($key, round($value / (1024 * 1024), 0));
+                        break;
+                    default:
+                        $this->SetValue($key, $value);
+                        break;
+                }
             }
+        } else {
+            $this->SendDebug('No Data', 'Android Device offline?', 0);
         }
     }
 
