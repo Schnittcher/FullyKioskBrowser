@@ -103,9 +103,6 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableInteger('externalStorageFreeSpace', $this->Translate('External Storage Free Space'), 'FKB.SpaceGB', 67);
         $this->RegisterVariableInteger('externalStorageTotalSpace', $this->Translate('External Storage Total Space'), 'FKB.SpaceGB', 68);
 
-        $this->RegisterVariableString('sensorInfo', $this->Translate('Sensor Info'), '', 69);
-        //$this->RegisterVariableFloat('sensorValue', $this->Translate('Sensor Value'), '', 70);
-
         if (!IPS_VariableProfileExists('FKB.Apps')) {
             $this->RegisterProfileIntegerEx('FKB.Apps', 'Database', '', '', []);
         }
@@ -280,6 +277,8 @@ class FKBDevice extends IPSModule
                     case 'appFreeMemory':
                     case 'appTotalMemory':
                         $this->SetValue($key, round($value / (1024 * 1024), 0));
+                        break;
+                    case 'sensorInfo':
                         break;
                     default:
                         $this->SetValue($key, $value);
