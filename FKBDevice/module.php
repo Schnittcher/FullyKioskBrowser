@@ -109,6 +109,8 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableInteger('Apps', $this->Translate('Apps'), 'FKB.Apps');
         $this->EnableAction('Apps');
 
+        $this->RegisterVariableString('packageName', $this->Translate('Package Name'), '', 68);
+
         $this->RegisterVariableInteger('DeviceControl', $this->Translate('Device Control'), 'FKB.DeviceControl');
         $this->EnableAction('DeviceControl');
 
