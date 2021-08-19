@@ -261,7 +261,7 @@ class FKBDevice extends IPSModule
 
         if ($result != false) {
             foreach ($result as $key => $value) {
-                if (!$this->GetIDForIdent($key)) {
+                if ($this->GetIDForIdent($key) == FALSE) {
                     $this->SendDebug('Invalid Ident', $key, 0);
                     continue;
                 }
