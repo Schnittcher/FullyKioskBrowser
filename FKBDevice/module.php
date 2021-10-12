@@ -32,6 +32,7 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableBoolean('plugged', $this->Translate('Plugged'), 'FKB.YesNo', 11);
 
         $this->RegisterVariableString('SSID', $this->Translate('SSID'), 'FKB.Network', 20);
+        $this->RegisterVariableString('BSSID', $this->Translate('BSSID'), 'FKB.Network', 20);
         $this->RegisterVariableString('Mac', $this->Translate('MAC Address'), 'FKB.Network', 18);
         $this->RegisterVariableString('ip4', $this->Translate('IPv4'), 'FKB.Network', 15);
         $this->RegisterVariableString('ip6', $this->Translate('IPv6'), 'FKB.Network', 17);
@@ -69,7 +70,7 @@ class FKBDevice extends IPSModule
         $this->RegisterVariableInteger('ramUsedMemory', $this->Translate('Ram Used Memory'), 'FKB.SpaceMB', 23);
         $this->RegisterVariableInteger('ramFreeMemory', $this->Translate('Ram Free Memory'), 'FKB.SpaceMB', 22);
         $this->RegisterVariableInteger('ramTotalMemory', $this->Translate('Ram Total Memory'), 'FKB.SpaceMB', 24);
-
+        $this->RegisterVariableBoolean('scopedStorage', $this->Translate('Scoped Storage'), 'FKB.YesNo', 25);
         $this->RegisterVariableInteger('appUsedMemory', $this->Translate('App Used Memory'), 'FKB.SpaceMB', 28);
         $this->RegisterVariableInteger('appFreeMemory', $this->Translate('App Free Memory'), 'FKB.SpaceMB', 27);
         $this->RegisterVariableInteger('appTotalMemory', $this->Translate('App Total Memory'), 'FKB.SpaceMB', 29);
