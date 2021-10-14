@@ -567,7 +567,7 @@ class FKBDevice extends IPSModule
                         }
                     }
                 } else {
-                    $this->LogMessgae($this->Translate('Variable not defined, contact module devleoper'), KL_WARNING);
+                    $this->LogMessage($this->Translate('Variable (' . $key . ') not defined, contact module devleoper'), KL_WARNING);
                 }
             }
         } else {
