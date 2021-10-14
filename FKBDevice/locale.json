@@ -82,7 +82,12 @@
             "Set": "Setzen",
             "MQTT Connected": "MQTT verbunden",
             "External Storage Free Space": "externer Speicher frei",
-            "External Storage Total Space": "externer Speicher gesamt"
+            "External Storage Total Space": "externer Speicher gesamt",
+            "Active": "Aktiv",
+            "Variable deleted": "Variable gelöscht",
+            "Variable not defined, contact module devleoper": "Variable nicht definiert, Modulentwickler kontaktieren",
+            "Package Name": "Paketname",
+            "Variables": "Variablen"
         }
     }
 }
