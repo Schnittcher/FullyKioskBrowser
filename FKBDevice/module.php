@@ -636,8 +636,12 @@ class FKBDevice extends IPSModule
 
     private function checkRequest($Value)
     {
-        if ($Value['status'] == 'OK') {
-            return true;
+        if (is_array($Value)) {
+            if ($Value['status'] == 'OK') {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
