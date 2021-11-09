@@ -565,7 +565,11 @@ class FKBDevice extends IPSModule
                         }
                     }
                 } else {
-                    $this->LogMessage($this->Translate('Variable (' . $key . ') not defined, contact module devleoper'), KL_WARNING);
+                    $ignoredKeys = [];
+                    array_push($ignoredKeys, 'sensorInfo');
+                    if (!in_array($key)) {
+                        $this->LogMessage($this->Translate('Variable (' . $key . ') not defined, contact module devleoper'), KL_WARNING);
+                    }
                 }
             }
         } else {
