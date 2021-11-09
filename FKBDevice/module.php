@@ -389,7 +389,7 @@ class FKBDevice extends IPSModule
                     }
                     break;
                 case 'packageName':
-                    $this->MaintainVariable('packageName', $this->Translate('Package Name'), 3, 'FKB.Information', 68, $Variable['Active']);
+                    $this->MaintainVariable('packageName', $this->Translate('Package Name'), 3, 'FKB.Information', 69, $Variable['Active']);
                     break;
                 case 'DeviceControl':
                     $this->MaintainVariable('DeviceControl', $this->Translate('Device Control'), 1, 'FKB.DeviceControl', 0, $Variable['Active']);
