@@ -411,12 +411,7 @@
                   "Ident": "setOverlayMessage",
                   "Variable": "Set Overlay Message",
                   "Active": true
-              },
-              {
-                "Ident": "sensorInfo",
-                "Variable": "Sensor Info",
-                "Active": true
-            }             
+              }
           ]
       },
         { "type": "Label", "caption": "Apps to start with this module:" },
