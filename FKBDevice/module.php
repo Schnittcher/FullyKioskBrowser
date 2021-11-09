@@ -559,8 +559,6 @@ class FKBDevice extends IPSModule
                             case 'appTotalMemory':
                                 $this->SetValue($key, round($value / (1024 * 1024), 0));
                                 break;
-                            case 'sensorInfo':
-                                break;
                             default:
                                 $this->SetValue($key, $value);
                                 break;
