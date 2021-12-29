@@ -567,7 +567,7 @@ class FKBDevice extends IPSModule
                 } else {
                     $ignoredKeys = [];
                     array_push($ignoredKeys, 'sensorInfo');
-                    if (!in_array($key)) {
+                    if (!in_array($key, $result)) {
                         $this->LogMessage($this->Translate('Variable (' . $key . ') not defined, contact module devleoper'), KL_WARNING);
                     }
                 }
