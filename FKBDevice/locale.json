@@ -87,7 +87,9 @@
             "Variable deleted": "Variable gelöscht",
             "Variable not defined, contact module devleoper": "Variable nicht definiert, Modulentwickler kontaktieren",
             "Package Name": "Paketname",
-            "Variables": "Variablen"
+            "Variables": "Variablen",
+            "loadStartURL": "Lade Start URL",
+            "Load URL": "Lade URL"
         }
     }
 }

@@ -403,6 +403,18 @@ class FKBDevice extends IPSModule
                         $this->EnableAction('setOverlayMessage');
                     }
                     break;
+                case 'loadStartURL':
+                    $this->MaintainVariable('loadStartURL', $this->Translate('Load Start URL'), 3, '', 0, $Variable['Active']);
+                    if ($Variable['Active']) {
+                        $this->EnableAction('loadStartURL');
+                    }
+                    break;
+                case 'loadURL':
+                    $this->MaintainVariable('loadURL', $this->Translate('Load URL'), 3, '', 0, $Variable['Active']);
+                    if ($Variable['Active']) {
+                        $this->EnableAction('loadURL');
+                    }
+                    break;
                 default:
                     # code...
                     break;
@@ -532,6 +544,18 @@ class FKBDevice extends IPSModule
         return $this->checkRequest($result);
     }
 
+    public function loadStartURL()
+    {
+        $result = $this->sendRequest('?cmd=loadStartURL');
+        return $this->checkRequest($result);
+    }
+
+    public function loadURL(string $Value)
+    {
+        $result = $this->sendRequest('?cmd=loadURL&url=' . urlencode($Value));
+        return $this->checkRequest($result);
+    }
+
     public function getDeviceInfo()
     {
         $result = $this->sendRequest('?cmd=getDeviceInfo');
@@ -622,6 +646,12 @@ class FKBDevice extends IPSModule
                 break;
             case 'setOverlayMessage':
                 $this->setOverlayMessage($Value);
+                break;
+            case 'loadStartURL':
+                $this->loadStartURL($Value);
+                break;
+            case 'loadURL':
+                $this->loadURL($Value);
                 break;
             case 'DeviceControl':
                 switch ($Value) {

@@ -411,7 +411,17 @@
                   "Ident": "setOverlayMessage",
                   "Variable": "Set Overlay Message",
                   "Active": true
-              }
+              },
+              {
+                "Ident": "loadStartURL",
+                "Variable": "Load Start URL",
+                "Active": true
+            },
+            {
+                "Ident": "loadURL",
+                "Variable": "Load URL",
+                "Active": true
+            }
           ]
       },
         { "type": "Label", "caption": "Apps to start with this module:" },
