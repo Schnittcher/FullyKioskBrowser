@@ -88,7 +88,7 @@
             "Variable not defined, contact module devleoper": "Variable nicht definiert, Modulentwickler kontaktieren",
             "Package Name": "Paketname",
             "Variables": "Variablen",
-            "loadStartURL": "Lade Start URL",
+            "Load Start URL": "Lade Start URL",
             "Load URL": "Lade URL"
         }
     }
