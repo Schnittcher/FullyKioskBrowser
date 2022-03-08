@@ -778,6 +778,7 @@ class FKBDevice extends IPSModule
         if ($json === false) {
             return false;
         } else {
+            $this->SendDebug('Request Result', $json, 0);
             $data = json_decode($json, true);
             return $data;
         }
