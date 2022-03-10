@@ -1,460 +1,479 @@
 {
     "elements": [
-        { 
+        {
             "type": "RowLayout",
             "items": [
-                { "type": "ValidationTextBox",
-                  "name": "Host",
-                  "caption": "Host"
-                },{
-                  "type": "NumberSpinner",
-                  "name": "Port",
-                  "caption": "Port"
+                {
+                    "type": "ValidationTextBox",
+                    "name": "Host",
+                    "caption": "Host"
+                },
+                {
+                    "type": "NumberSpinner",
+                    "name": "Port",
+                    "caption": "Port"
                 }
             ]
-        },       
-        { "type": "PasswordTextBox", "name": "Password", "caption": "Password" },
-        { "type": "NumberSpinner", "name": "Updateinterval", "caption": "Updateinterval", "suffix": "seconds"},
-        { "type": "Label", "caption": "Variables" },
+        },
         {
-          "type": "List",
-          "name": "Variables",
-          "rowCount": 35,
-          "add": false,
-          "delete": false,
-          "edit": false,
-          "columns": [
-              {
-                  "caption": "Ident",
-                  "name": "Ident",
-                  "width": "auto",
-                  "visible": false,
-                  "save": true
-              },
-              {
-                  "caption": "Variable",
-                  "name": "Variable",
-                  "width": "auto",
-                  "save": true
-              },
-              {
-                  "caption": "Active",
-                  "name": "Active",
-                  "width": "60px",
-                  "edit": {
-                      "type": "CheckBox"
-                  }
-              }
-          ],
-          "values": [
-              {
-                  "Ident": "deviceId",
-                  "Variable": "Device ID",
-                  "Active": true
-              },
-              {
-                  "Ident": "deviceName",
-                  "Variable": "Devicename",
-                  "Active": true
-              },
-              {
-                  "Ident": "altitude",
-                  "Variable": "Altidude",
-                  "Active": true
-              },
-              {
-                  "Ident": "longitude",
-                  "Variable": "Longitude",
-                  "Active": true
-              },
-              {
-                  "Ident": "latitude",
-                  "Variable": "Latitude",
-                  "Active": true
-              },
-              {
-                  "Ident": "locationProvide",
-                  "Variable": "Location Provide",
-                  "Active": true
-              },
-              {
-                  "Ident": "batteryLevel",
-                  "Variable": "Battery",
-                  "Active": true
-              },
-              {
-                  "Ident": "batteryTemperature",
-                  "Variable": "Battery Temperature",
-                  "Active": true
-              },
-              {
-                  "Ident": "isPlugged",
-                  "Variable": "isPlugged",
-                  "Active": true
-              },
-              {
-                  "Ident": "plugged",
-                  "Variable": "Plugged",
-                  "Active": true
-              },
-              {
-                  "Ident": "SSID",
-                  "Variable": "SSID",
-                  "Active": true
-              },
-              {
-                  "Ident": "BSSID",
-                  "Variable": "BSSID",
-                  "Active": true
-              },
-              {
-                  "Ident": "Mac",
-                  "Variable": "MAC Address",
-                  "Active": true
-              },
-              {
-                  "Ident": "ip4",
-                  "Variable": "IPv4",
-                  "Active": true
-              },
-              {
-                  "Ident": "ip6",
-                  "Variable": "IPv6",
-                  "Active": true
-              },
-              {
-                  "Ident": "hostname4",
-                  "Variable": "Hostname IPv4",
-                  "Active": true
-              },
-              {
-                  "Ident": "hostname6",
-                  "Variable": "Hostname IPv6",
-                  "Active": true
-              },
-              {
-                  "Ident": "wifiSignalLevel",
-                  "Variable": "Wifi Signal Level",
-                  "Active": true
-              },
-              {
-                  "Ident": "isMobileDataEnabled",
-                  "Variable": "Mobile Data",
-                  "Active": true
-              },
-              {
-                  "Ident": "screenOrientation",
-                  "Variable": "Screen Orientation",
-                  "Active": true
-              },
-              {
-                  "Ident": "screenBrightness",
-                  "Variable": "Screen Brightness",
-                  "Active": true
-              },
-              {
-                  "Ident": "screenLocked",
-                  "Variable": "Screen Locked",
-                  "Active": true
-              },
-              {
-                  "Ident": "screenOn",
-                  "Variable": "Display",
-                  "Active": true
-              },
-              {
-                  "Ident": "keyguardLocked",
-                  "Variable": "Keyguard Locked",
-                  "Active": true
-              },
-              {
-                  "Ident": "locale",
-                  "Variable": "Locale",
-                  "Active": true
-              },
-              {
-                  "Ident": "serial",
-                  "Variable": "Serial",
-                  "Active": true
-              },
-              {
-                  "Ident": "version",
-                  "Variable": "Version",
-                  "Active": true
-              },
-              {
-                  "Ident": "versionCode",
-                  "Variable": "Version Code",
-                  "Active": true
-              },
-              {
-                  "Ident": "build",
-                  "Variable": "Build",
-                  "Active": true
-              },
-              {
-                  "Ident": "model",
-                  "Variable": "Model",
-                  "Active": true
-              },
-              {
-                  "Ident": "manufacturer",
-                  "Variable": "Manufacturer",
-                  "Active": true
-              },
-              {
-                  "Ident": "androidVersion",
-                  "Variable": "Android Version",
-                  "Active": true
-              },
-              {
-                  "Ident": "SDK",
-                  "Variable": "SDK",
-                  "Active": true
-              },
-              {
-                  "Ident": "webviewUA",
-                  "Variable": "webviewUA",
-                  "Active": true
-              },
-              {
-                  "Ident": "foreground",
-                  "Variable": "Foreground",
-                  "Active": true
-              },
-              {
-                  "Ident": "toForeground",
-                  "Variable": "To Foreground",
-                  "Active": true
-              },
-              {
-                  "Ident": "foregroundActivity",
-                  "Variable": "Foreground Activity",
-                  "Active": true
-              },
-              {
-                  "Ident": "motionDetectorStatus",
-                  "Variable": "Motion Detector Status",
-                  "Active": true
-              },
-              {
-                  "Ident": "isDeviceAdmin",
-                  "Variable": "Device Admin",
-                  "Active": true
-              },
-              {
-                  "Ident": "isDeviceOwner",
-                  "Variable": "Device Owner",
-                  "Active": true
-              },
-              {
-                  "Ident": "internalStorageFreeSpace",
-                  "Variable": "Internal Storage Free Space",
-                  "Active": true
-              },
-              {
-                  "Ident": "internalStorageTotalSpace",
-                  "Variable": "Internal Storage Total Space",
-                  "Active": true
-              },
-              {
-                  "Ident": "ramUsedMemory",
-                  "Variable": "Ram Used Memory",
-                  "Active": true
-              },
-              {
-                  "Ident": "ramFreeMemory",
-                  "Variable": "Ram Free Memory",
-                  "Active": true
-              },
-              {
-                  "Ident": "ramTotalMemory",
-                  "Variable": "Ram Total Memory",
-                  "Active": true
-              },
-              {
-                  "Ident": "scopedStorage",
-                  "Variable": "Scoped Storage",
-                  "Active": true
-              },
-              {
-                  "Ident": "appUsedMemory",
-                  "Variable": "App Used Memory",
-                  "Active": true
-              },
-              {
-                  "Ident": "appFreeMemory",
-                  "Variable": "App Free Memory",
-                  "Active": true
-              },
-              {
-                  "Ident": "appTotalMemory",
-                  "Variable": "App Total Memory",
-                  "Active": true
-              },
-              {
-                  "Ident": "displayHeightPixels",
-                  "Variable": "Display Height Pixels",
-                  "Active": true
-              },
-              {
-                  "Ident": "displayWidthPixels",
-                  "Variable": "Display Width Pixels",
-                  "Active": true
-              },
-              {
-                  "Ident": "isMenuOpen",
-                  "Variable": "Menu Open",
-                  "Active": true
-              },
-              {
-                  "Ident": "topFragmentTag",
-                  "Variable": "Top Fragment Tag",
-                  "Active": true
-              },
-              {
-                  "Ident": "isInDaydream",
-                  "Variable": "Daydream",
-                  "Active": true
-              },
-              {
-                  "Ident": "appStartTime",
-                  "Variable": "App Start Time",
-                  "Active": true
-              },
-              {
-                  "Ident": "isRooted",
-                  "Variable": "Rooted",
-                  "Active": true
-              },
-              {
-                  "Ident": "isLicensed",
-                  "Variable": "Licensed",
-                  "Active": true
-              },
-              {
-                  "Ident": "isInScreensaver",
-                  "Variable": "Screensaver",
-                  "Active": true
-              },
-              {
-                  "Ident": "kioskLocked",
-                  "Variable": "Kiosk Locked",
-                  "Active": true
-              },
-              {
-                  "Ident": "isInForcedSleep",
-                  "Variable": "In Forced Sleep",
-                  "Active": true
-              },
-              {
-                  "Ident": "maintenanceMode",
-                  "Variable": "Maintenance Mode",
-                  "Active": true
-              },
-              {
-                  "Ident": "kioskMode",
-                  "Variable": "Kiosk Mode",
-                  "Active": true
-              },
-              {
-                  "Ident": "startUrl",
-                  "Variable": "Start URL",
-                  "Active": true
-              },
-              {
-                  "Ident": "currentTabIndex",
-                  "Variable": "Current TabIndex",
-                  "Active": true
-              },
-              {
-                  "Ident": "currentPageUrl",
-                  "Variable": "Current Page URL",
-                  "Active": true
-              },
-              {
-                  "Ident": "textToSpeech",
-                  "Variable": "Text to Speech",
-                  "Active": true
-              },
-              {
-                  "Ident": "mqttConnected",
-                  "Variable": "MQTT Connected",
-                  "Active": true
-              },
-              {
-                  "Ident": "externalStorageFreeSpace",
-                  "Variable": "External Storage Free Space",
-                  "Active": true
-              },
-              {
-                  "Ident": "externalStorageTotalSpace",
-                  "Variable": "External Storage Total Space",
-                  "Active": true
-              },
-              {
-                  "Ident": "Apps",
-                  "Variable": "Apps",
-                  "Active": true
-              },
-              {
-                  "Ident": "packageName",
-                  "Variable": "Package Name",
-                  "Active": true
-              },
-              {
-                  "Ident": "DeviceControl",
-                  "Variable": "Device Control",
-                  "Active": true
-              },
-              {
-                  "Ident": "setOverlayMessage",
-                  "Variable": "Set Overlay Message",
-                  "Active": true
-              },
-              {
-                "Ident": "loadStartURL",
-                "Variable": "Load Start URL",
-                "Active": true
+            "type": "PasswordTextBox",
+            "name": "Password",
+            "caption": "Password"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "Updateinterval",
+            "caption": "Updateinterval",
+            "suffix": "seconds"
+        },
+        {
+            "type": "Label",
+            "caption": "Variables"
+        },
+        {
+            "type": "List",
+            "name": "Variables",
+            "rowCount": 35,
+            "add": false,
+            "delete": false,
+            "edit": false,
+            "columns": [
+                {
+                    "caption": "Ident",
+                    "name": "Ident",
+                    "width": "auto",
+                    "visible": false,
+                    "save": true
+                },
+                {
+                    "caption": "Variable",
+                    "name": "Variable",
+                    "width": "auto",
+                    "save": true
+                },
+                {
+                    "caption": "Active",
+                    "name": "Active",
+                    "width": "60px",
+                    "edit": {
+                        "type": "CheckBox"
+                    }
+                }
+            ],
+            "values": [
+                {
+                    "Ident": "deviceId",
+                    "Variable": "Device ID",
+                    "Active": true
+                },
+                {
+                    "Ident": "deviceName",
+                    "Variable": "Devicename",
+                    "Active": true
+                },
+                {
+                    "Ident": "altitude",
+                    "Variable": "Altidude",
+                    "Active": true
+                },
+                {
+                    "Ident": "longitude",
+                    "Variable": "Longitude",
+                    "Active": true
+                },
+                {
+                    "Ident": "latitude",
+                    "Variable": "Latitude",
+                    "Active": true
+                },
+                {
+                    "Ident": "locationProvide",
+                    "Variable": "Location Provide",
+                    "Active": true
+                },
+                {
+                    "Ident": "batteryLevel",
+                    "Variable": "Battery",
+                    "Active": true
+                },
+                {
+                    "Ident": "batteryTemperature",
+                    "Variable": "Battery Temperature",
+                    "Active": true
+                },
+                {
+                    "Ident": "isPlugged",
+                    "Variable": "isPlugged",
+                    "Active": true
+                },
+                {
+                    "Ident": "plugged",
+                    "Variable": "Plugged",
+                    "Active": true
+                },
+                {
+                    "Ident": "SSID",
+                    "Variable": "SSID",
+                    "Active": true
+                },
+                {
+                    "Ident": "BSSID",
+                    "Variable": "BSSID",
+                    "Active": true
+                },
+                {
+                    "Ident": "Mac",
+                    "Variable": "MAC Address",
+                    "Active": true
+                },
+                {
+                    "Ident": "ip4",
+                    "Variable": "IPv4",
+                    "Active": true
+                },
+                {
+                    "Ident": "ip6",
+                    "Variable": "IPv6",
+                    "Active": true
+                },
+                {
+                    "Ident": "hostname4",
+                    "Variable": "Hostname IPv4",
+                    "Active": true
+                },
+                {
+                    "Ident": "hostname6",
+                    "Variable": "Hostname IPv6",
+                    "Active": true
+                },
+                {
+                    "Ident": "wifiSignalLevel",
+                    "Variable": "Wifi Signal Level",
+                    "Active": true
+                },
+                {
+                    "Ident": "isMobileDataEnabled",
+                    "Variable": "Mobile Data",
+                    "Active": true
+                },
+                {
+                    "Ident": "screenOrientation",
+                    "Variable": "Screen Orientation",
+                    "Active": true
+                },
+                {
+                    "Ident": "screenBrightness",
+                    "Variable": "Screen Brightness",
+                    "Active": true
+                },
+                {
+                    "Ident": "screenLocked",
+                    "Variable": "Screen Locked",
+                    "Active": true
+                },
+                {
+                    "Ident": "screenOn",
+                    "Variable": "Display",
+                    "Active": true
+                },
+                {
+                    "Ident": "keyguardLocked",
+                    "Variable": "Keyguard Locked",
+                    "Active": true
+                },
+                {
+                    "Ident": "locale",
+                    "Variable": "Locale",
+                    "Active": true
+                },
+                {
+                    "Ident": "serial",
+                    "Variable": "Serial",
+                    "Active": true
+                },
+                {
+                    "Ident": "version",
+                    "Variable": "Version",
+                    "Active": true
+                },
+                {
+                    "Ident": "versionCode",
+                    "Variable": "Version Code",
+                    "Active": true
+                },
+                {
+                    "Ident": "build",
+                    "Variable": "Build",
+                    "Active": true
+                },
+                {
+                    "Ident": "model",
+                    "Variable": "Model",
+                    "Active": true
+                },
+                {
+                    "Ident": "manufacturer",
+                    "Variable": "Manufacturer",
+                    "Active": true
+                },
+                {
+                    "Ident": "androidVersion",
+                    "Variable": "Android Version",
+                    "Active": true
+                },
+                {
+                    "Ident": "SDK",
+                    "Variable": "SDK",
+                    "Active": true
+                },
+                {
+                    "Ident": "webviewUA",
+                    "Variable": "webviewUA",
+                    "Active": true
+                },
+                {
+                    "Ident": "foreground",
+                    "Variable": "Foreground",
+                    "Active": true
+                },
+                {
+                    "Ident": "toForeground",
+                    "Variable": "To Foreground",
+                    "Active": true
+                },
+                {
+                    "Ident": "foregroundActivity",
+                    "Variable": "Foreground Activity",
+                    "Active": true
+                },
+                {
+                    "Ident": "motionDetectorStatus",
+                    "Variable": "Motion Detector Status",
+                    "Active": true
+                },
+                {
+                    "Ident": "isDeviceAdmin",
+                    "Variable": "Device Admin",
+                    "Active": true
+                },
+                {
+                    "Ident": "isDeviceOwner",
+                    "Variable": "Device Owner",
+                    "Active": true
+                },
+                {
+                    "Ident": "internalStorageFreeSpace",
+                    "Variable": "Internal Storage Free Space",
+                    "Active": true
+                },
+                {
+                    "Ident": "internalStorageTotalSpace",
+                    "Variable": "Internal Storage Total Space",
+                    "Active": true
+                },
+                {
+                    "Ident": "ramUsedMemory",
+                    "Variable": "Ram Used Memory",
+                    "Active": true
+                },
+                {
+                    "Ident": "ramFreeMemory",
+                    "Variable": "Ram Free Memory",
+                    "Active": true
+                },
+                {
+                    "Ident": "ramTotalMemory",
+                    "Variable": "Ram Total Memory",
+                    "Active": true
+                },
+                {
+                    "Ident": "scopedStorage",
+                    "Variable": "Scoped Storage",
+                    "Active": true
+                },
+                {
+                    "Ident": "appUsedMemory",
+                    "Variable": "App Used Memory",
+                    "Active": true
+                },
+                {
+                    "Ident": "appFreeMemory",
+                    "Variable": "App Free Memory",
+                    "Active": true
+                },
+                {
+                    "Ident": "appTotalMemory",
+                    "Variable": "App Total Memory",
+                    "Active": true
+                },
+                {
+                    "Ident": "displayHeightPixels",
+                    "Variable": "Display Height Pixels",
+                    "Active": true
+                },
+                {
+                    "Ident": "displayWidthPixels",
+                    "Variable": "Display Width Pixels",
+                    "Active": true
+                },
+                {
+                    "Ident": "isMenuOpen",
+                    "Variable": "Menu Open",
+                    "Active": true
+                },
+                {
+                    "Ident": "topFragmentTag",
+                    "Variable": "Top Fragment Tag",
+                    "Active": true
+                },
+                {
+                    "Ident": "isInDaydream",
+                    "Variable": "Daydream",
+                    "Active": true
+                },
+                {
+                    "Ident": "appStartTime",
+                    "Variable": "App Start Time",
+                    "Active": true
+                },
+                {
+                    "Ident": "isRooted",
+                    "Variable": "Rooted",
+                    "Active": true
+                },
+                {
+                    "Ident": "isLicensed",
+                    "Variable": "Licensed",
+                    "Active": true
+                },
+                {
+                    "Ident": "isInScreensaver",
+                    "Variable": "Screensaver",
+                    "Active": true
+                },
+                {
+                    "Ident": "kioskLocked",
+                    "Variable": "Kiosk Locked",
+                    "Active": true
+                },
+                {
+                    "Ident": "isInForcedSleep",
+                    "Variable": "In Forced Sleep",
+                    "Active": true
+                },
+                {
+                    "Ident": "maintenanceMode",
+                    "Variable": "Maintenance Mode",
+                    "Active": true
+                },
+                {
+                    "Ident": "kioskMode",
+                    "Variable": "Kiosk Mode",
+                    "Active": true
+                },
+                {
+                    "Ident": "startUrl",
+                    "Variable": "Start URL",
+                    "Active": true
+                },
+                {
+                    "Ident": "currentTabIndex",
+                    "Variable": "Current TabIndex",
+                    "Active": true
+                },
+                {
+                    "Ident": "currentPageUrl",
+                    "Variable": "Current Page URL",
+                    "Active": true
+                },
+                {
+                    "Ident": "textToSpeech",
+                    "Variable": "Text to Speech",
+                    "Active": true
+                },
+                {
+                    "Ident": "mqttConnected",
+                    "Variable": "MQTT Connected",
+                    "Active": true
+                },
+                {
+                    "Ident": "externalStorageFreeSpace",
+                    "Variable": "External Storage Free Space",
+                    "Active": true
+                },
+                {
+                    "Ident": "externalStorageTotalSpace",
+                    "Variable": "External Storage Total Space",
+                    "Active": true
+                },
+                {
+                    "Ident": "Apps",
+                    "Variable": "Apps",
+                    "Active": true
+                },
+                {
+                    "Ident": "packageName",
+                    "Variable": "Package Name",
+                    "Active": true
+                },
+                {
+                    "Ident": "DeviceControl",
+                    "Variable": "Device Control",
+                    "Active": true
+                },
+                {
+                    "Ident": "setOverlayMessage",
+                    "Variable": "Set Overlay Message",
+                    "Active": true
+                },
+                {
+                    "Ident": "loadStartURL",
+                    "Variable": "Load Start URL",
+                    "Active": true
+                },
+                {
+                    "Ident": "loadURL",
+                    "Variable": "Load URL",
+                    "Active": true
+                }
+            ]
+        },
+        {
+            "type": "Label",
+            "caption": "Apps to start with this module:"
+        },
+        {
+            "type": "List",
+            "name": "Apps",
+            "rowCount": 15,
+            "add": true,
+            "delete": true,
+            "sort": {
+                "column": "AppName",
+                "direction": "ascending"
             },
-            {
-                "Ident": "loadURL",
-                "Variable": "Load URL",
-                "Active": true
-            }
-          ]
-      },
-        { "type": "Label", "caption": "Apps to start with this module:" },
-        {
-          "type": "List",
-          "name": "Apps",
-          "rowCount": 15,
-          "add": true,
-          "delete": true,
-          "sort": {
-              "column": "AppName",
-              "direction": "ascending"
-          },
-          "columns": [{
-              "label": "App",
-              "name": "AppName",
-              "width": "150px",
-              "add": 1,
-              "edit": {
-                  "type": "ValidationTextBox"
-              }
-          }, {
-              "label": "Package",
-              "name": "Package",
-              "width": "auto",
-              "add": 1,
-              "edit": {
-                  "type": "ValidationTextBox"
-              }
-          }
-          ],
-          "values": []
-      }
+            "columns": [
+                {
+                    "label": "App",
+                    "name": "AppName",
+                    "width": "150px",
+                    "add": 1,
+                    "edit": {
+                        "type": "ValidationTextBox"
+                    }
+                },
+                {
+                    "label": "Package",
+                    "name": "Package",
+                    "width": "auto",
+                    "add": 1,
+                    "edit": {
+                        "type": "ValidationTextBox"
+                    }
+                }
+            ],
+            "values": []
+        }
     ],
     "actions": [],
     "status": []

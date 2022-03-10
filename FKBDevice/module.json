@@ -3,7 +3,9 @@
     "name": "FKBDevice",
     "type": 3,
     "vendor": "",
-    "aliases": ["FullyKioskBrowser"],
+    "aliases": [
+        "FullyKioskBrowser"
+    ],
     "parentRequirements": [],
     "childRequirements": [],
     "implemented": [],
