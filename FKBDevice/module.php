@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../libs/VariableProfileHelper.php';  // diverse Klassen
+require_once __DIR__ . '/../libs/vendor/SymconModulHelper/VariableProfileHelper.php';
 
 class FKBDevice extends IPSModule
 {
