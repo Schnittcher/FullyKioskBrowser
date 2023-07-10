@@ -45,6 +45,7 @@
             "webviewUA": "Browser",
             "Foreground": "Vordergrund",
             "To Foreground": "In den Vordergrund",
+            "To Background": "In den Hintergrund",
             "Foreground Activity": "Vordergrundaktivität",
             "Motion Detector Status": "Bewegungssensor Status",
             "Device Admin": "Geräte Administrator",

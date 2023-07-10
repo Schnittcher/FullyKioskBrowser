@@ -268,6 +268,12 @@ class FKBDevice extends IPSModule
                         $this->EnableAction('toForeground');
                     }
                     break;
+                case 'toBackground':
+                    $this->MaintainVariable('toBackground', $this->Translate('To Background'), 1, 'FKB.Set', 53, $Variable['Active']);
+                    if ($Variable['Active']) {
+                        $this->EnableAction('toBackground');
+                    }
+                    break;
                 case 'foregroundActivity':
                     $this->MaintainVariable('foregroundActivity', $this->Translate('Foreground Activity'), 3, 'FKB.Information', 59, $Variable['Active']);
                     break;
@@ -491,6 +497,14 @@ class FKBDevice extends IPSModule
         }
     }
 
+    public function toBackground()
+    {
+        $result = $this->sendRequest('?cmd=toBackground');
+        if ($this->checkRequest($result)) {
+            return true;
+        }
+    }
+
     public function popFragment()
     {
         $result = $this->sendRequest('?cmd=popFragment');
@@ -634,6 +648,9 @@ class FKBDevice extends IPSModule
                 break;
             case 'toForeground':
                 $this->toForeground();
+                break;
+            case 'toBackground':
+                $this->toBackground();
                 break;
             case 'Apps':
                 $AppsListString = $this->ReadPropertyString('Apps');
