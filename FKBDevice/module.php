@@ -622,7 +622,6 @@ class FKBDevice extends IPSModule
         return $this->checkRequest($result);
     }
 
-    ///?cmd=playVideo&password=[pass]&url=[url]&loop=[0|1]&showControls=[0|1]&exitOnTouch=[0|1]&exitOnCompletion=[0|1]
     public function playVideo(string $url, bool $loop, bool $showControls, bool $exitOnTouch, $exitOnCompletion)
     {
         $Value = $Value ? 'true' : 'false';
