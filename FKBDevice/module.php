@@ -622,6 +622,13 @@ class FKBDevice extends IPSModule
         return $this->checkRequest($result);
     }
 
+    public function jaja(string $Key, bool $Value)
+    {
+        $Value = $Value ? 'true' : 'false';
+        $result = $this->sendRequest('?cmd=setBooleanSetting&key=' . $Key . '&value=' . $Value);
+        return $this->checkRequest($result);
+    }
+
     public function setStringSetting(string $Key, string $Value)
     {
         $result = $this->sendRequest('?cmd=setStringSetting&key=' . $Key . '&value=' . $Value);
