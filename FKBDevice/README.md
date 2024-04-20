@@ -118,6 +118,13 @@
    FKB_rebootDevice(12345); //Gerät neustarten
    ```
 
+   ### FKB_playVideo(integer $InstanceID, string $url, )
+   Mit dieser Funktion kann ein Video gestartet werden.
+ 
+   **Beispiel:**
+   ```php
+   FKB_textToSpeech(12345, 'Hallo, IP-Symcon ist toll!'); //Der Text "Hallo, IP-Symcon ist toll!" wird auf dem Gerät wiedergegeben.
+   ```
    ### FKB_textToSpeech(integer $InstanceID, string $Value)
    Mit dieser Funktion kann ein Text auf dem Gerät wiedergegeben werden.
  
