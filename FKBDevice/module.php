@@ -622,10 +622,11 @@ class FKBDevice extends IPSModule
         return $this->checkRequest($result);
     }
 
-    public function jaja(string $Key, bool $Value)
+    ///?cmd=playVideo&password=[pass]&url=[url]&loop=[0|1]&showControls=[0|1]&exitOnTouch=[0|1]&exitOnCompletion=[0|1]
+    public function playVideo(string $url, bool $loop, bool $showControls, bool $exitOnTouch, $exitOnCompletion)
     {
         $Value = $Value ? 'true' : 'false';
-        $result = $this->sendRequest('?cmd=setBooleanSetting&key=' . $Key . '&value=' . $Value);
+        $result = $this->sendRequest('?cmd=playVideo&url=' . $url . '&loop=' . $loop . '&showControls=' . $showControls . '&exitOnTouch=' . $exitOnTouch . '&exitOnCompletion=' . $exitOnCompletion);
         return $this->checkRequest($result);
     }
 
