@@ -622,6 +622,13 @@ class FKBDevice extends IPSModule
         return $this->checkRequest($result);
     }
 
+    public function playVideo(string $url, bool $loop, bool $showControls, bool $exitOnTouch, $exitOnCompletion)
+    {
+        $Value = $Value ? 'true' : 'false';
+        $result = $this->sendRequest('?cmd=playVideo&url=' . $url . '&loop=' . $loop . '&showControls=' . $showControls . '&exitOnTouch=' . $exitOnTouch . '&exitOnCompletion=' . $exitOnCompletion);
+        return $this->checkRequest($result);
+    }
+
     public function setStringSetting(string $Key, string $Value)
     {
         $result = $this->sendRequest('?cmd=setStringSetting&key=' . $Key . '&value=' . $Value);
