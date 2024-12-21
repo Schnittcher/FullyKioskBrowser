@@ -622,9 +622,26 @@ class FKBDevice extends IPSModule
         return $this->checkRequest($result);
     }
 
+    public function setAudioVolume(integer $level, $stream)
+    {
+        $result = $this->sendRequest('?cmd=setAudioVolume&level=' . $level . '&stream=' . $stream);
+        return $this->checkRequest($result);
+    }
+
+    public function playSound(string $url, bool $loop, $stream)
+    {
+        $result = $this->sendRequest('?cmd=playSound&url=' . $url . '&loop=' . $loop . '&stream=' . $stream);
+        return $this->checkRequest($result);
+    }
+
+    public function stopSound()
+    {
+        $result = $this->sendRequest('?cmd=stopSound');
+        return $this->checkRequest($result);
+    }
+
     public function playVideo(string $url, bool $loop, bool $showControls, bool $exitOnTouch, $exitOnCompletion)
     {
-        $Value = $Value ? 'true' : 'false';
         $result = $this->sendRequest('?cmd=playVideo&url=' . $url . '&loop=' . $loop . '&showControls=' . $showControls . '&exitOnTouch=' . $exitOnTouch . '&exitOnCompletion=' . $exitOnCompletion);
         return $this->checkRequest($result);
     }

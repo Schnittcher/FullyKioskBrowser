@@ -118,13 +118,38 @@
    FKB_rebootDevice(12345); //Gerät neustarten
    ```
 
-   ### FKB_playVideo(integer $InstanceID, string $url, bool $loop, bool $showControls, bool $exitOnTouch, $exitOnCompletion)
-   Mit dieser Funktion kann ein Video gestartet werden. Für die weiteren Parameter siehe die FKB-Doku
+   ### FKB_setAudioVolume(integer $InstanceID, integer $level, integer $stream)
+   Mit dieser Funktion kann Lautstärke angepasst werden. Für die weiteren Parameter siehe die FKB-Doku.
  
    **Beispiel:**
    ```php
-   FKB_playVideo(12345, 'http://www.EinVideo.com',false,true,true,true); //Das angegebene Video wird ein Mal abgespielt und auf Touch oder am Ende beendet.
+   FKB_setAudioVolume(12345,50 ,1);
    ```
+
+   ### FKB_playSound(integer $InstanceID, string $url, bool $loop, integer $stream)
+   Mit dieser Funktion kann eine Audiodatei gestartet werden. Für die weiteren Parameter siehe die FKB-Doku.
+ 
+   **Beispiel:**
+   ```php
+   FKB_playSound(12345, 'URL zur Audiodatei',false,1);
+   ```
+
+   ### FKB_stopSound(integer $InstanceID, integer $level, integer $stream)
+   Mit dieser Funktion kann die Wiedergabe der Audiodatei gestoppt werden. Für die weiteren Parameter siehe die FKB-Doku.
+ 
+   **Beispiel:**
+   ```php
+   FKB_stopSound(12345);
+   ```
+
+   ### FKB_playVideo(integer $InstanceID, string $url, bool $loop, bool $showControls, bool $exitOnTouch, $exitOnCompletion)
+   Mit dieser Funktion kann ein Video gestartet werden. Für die weiteren Parameter siehe die FKB-Doku.
+ 
+   **Beispiel:**
+   ```php
+   FKB_playVideo(12345, 'URL zum Video',false,true,true,true); //Das angegebene Video wird ein Mal abgespielt und auf Touch oder am Ende beendet.
+   ```
+
    ### FKB_textToSpeech(integer $InstanceID, string $Value)
    Mit dieser Funktion kann ein Text auf dem Gerät wiedergegeben werden.
  
