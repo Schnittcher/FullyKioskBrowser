@@ -622,7 +622,7 @@ class FKBDevice extends IPSModule
         return $this->checkRequest($result);
     }
 
-    public function setAudioVolume(integer $level, $stream)
+    public function setAudioVolume(int $level, $stream)
     {
         $result = $this->sendRequest('?cmd=setAudioVolume&level=' . $level . '&stream=' . $stream);
         return $this->checkRequest($result);
