@@ -20,6 +20,6 @@
 - Die Variable "In den Hintergrund" wird jetzt angelegt.
 - Der Standortanbieter wird jetzt angezeigt (die Variable war bisher immer leer).
 - URLs, Texte und Schalter (zum Beispiel bei playSound, playVideo und loadApkFile) werden korrekt übergeben.
-- Mehrere Tablets teilen sich nicht mehr die Auswahl der Apps.
+- Mehrere Tablets teilen sich nicht mehr die Auswahl der Apps. (Profil wurde immer überschrieben)
 - Unbekannte Werte vom Tablet erzeugen keine Warnungen mehr im Meldungsfenster.
 - Funktionen melden jetzt zuverlässig Erfolg oder Fehler zurück.
