@@ -368,6 +368,24 @@ class FKBDeviceTest extends TestCase
         }
     }
 
+    public function testEveryStatusCodeOfTheModuleIsDeclaredInTheForm(): void
+    {
+        // Ein Statuscode ohne Eintrag unter "status" zeigt die Konsole als "Instanz hat einen ungültigen Statuscode" an
+        $form = json_decode(file_get_contents(__DIR__ . '/../FKBDevice/form.json'), true);
+        $declared = array_column($form['status'], 'icon', 'code');
+
+        $connectionError = (new ReflectionClassConstant('FKBDevice', 'STATUS_CONNECTION_ERROR'))->getValue();
+
+        $this->assertSame('active', $declared[IS_ACTIVE] ?? null);
+        $this->assertSame('inactive', $declared[IS_INACTIVE] ?? null);
+        $this->assertSame('error', $declared[$connectionError] ?? null);
+
+        $locale = json_decode(file_get_contents(__DIR__ . '/../FKBDevice/locale.json'), true);
+        foreach (array_column($form['status'], 'caption') as $caption) {
+            $this->assertArrayHasKey($caption, $locale['translations']['de'], $caption);
+        }
+    }
+
     public function testPublicFunctionsHaveNoDefaultValues(): void
     {
         // Die von Symcon erzeugten FKB_-Funktionen kennen keine Standardwerte:

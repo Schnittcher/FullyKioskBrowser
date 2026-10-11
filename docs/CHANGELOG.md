@@ -17,6 +17,7 @@
 ### Fixes
 - Das Passwort erscheint nicht mehr im Debug-Fenster.
 - Ist das Tablet nicht erreichbar, blockiert IP-Symcon nicht mehr bis zu einer Minute. Die Instanz zeigt dann einen Fehlerstatus.
+- Ist das Tablet ausgeschaltet, meldet die Konsole nicht mehr "ungültiger Statuscode 201", sondern "Tablet nicht erreichbar".
 - Die Variable "In den Hintergrund" wird jetzt angelegt.
 - Der Standortanbieter wird jetzt angezeigt (die Variable war bisher immer leer).
 - URLs, Texte und Schalter (zum Beispiel bei playSound, playVideo und loadApkFile) werden korrekt übergeben.

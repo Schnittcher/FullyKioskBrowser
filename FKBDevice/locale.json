@@ -123,7 +123,10 @@
             "Audio Volumes": "Lautstärken",
             "Volume Music": "Lautstärke Musik",
             "Last Event Data": "Daten des letzten Ereignisses",
-            "Last Event Time": "Zeit des letzten Ereignisses"
+            "Last Event Time": "Zeit des letzten Ereignisses",
+            "Instance is active": "Instanz ist aktiv",
+            "Host is missing": "Host fehlt",
+            "Tablet is not reachable": "Tablet nicht erreichbar"
         }
     }
 }
